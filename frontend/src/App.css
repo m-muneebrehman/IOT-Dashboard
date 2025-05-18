@@ -1,0 +1,510 @@
+/* src/App.css */
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --warning-color: #f39c12;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* Layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Navigation */
+.navbar {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.navbar-logo h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-links li {
+  margin-left: 1.5rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: all 0.2s ease;
+}
+
+.navbar-links a:hover {
+  opacity: 0.8;
+  border-bottom: 2px solid white;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Dashboard */
+.dashboard {
+  padding: 1rem 0;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-background);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.filter-container {
+  flex: 1;
+  min-width: 250px;
+}
+
+.filter-input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.refresh-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.refresh-select {
+  padding: 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.refresh-button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.refresh-button:hover {
+  background-color: #27ae60;
+}
+
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Device Cards */
+.device-card {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.device-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.readings {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+}
+
+.reading {
+  text-align: center;
+  flex: 1;
+}
+
+.reading .icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.reading .value {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.temperature .value {
+  color: #e74c3c;
+}
+
+.humidity .value {
+  color: #3498db;
+}
+
+.last-update {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.chart-toggle-btn {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #f5f5f5;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.chart-toggle-btn:hover {
+  background-color: #e9e9e9;
+}
+
+.chart-container {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.chart-container h4 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Admin Console */
+.admin-console {
+  padding: 1rem 0;
+}
+
+.admin-header {
+  margin-bottom: 2rem;
+}
+
+.admin-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .admin-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Form Section */
+.device-form-container {
+  background-color: var(--card-background);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.device-form-container h3 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.button.primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.button.primary:hover {
+  background-color: #2980b9;
+}
+
+.button.secondary {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.button.secondary:hover {
+  background-color: #7f8c8d;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status-message {
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.status-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.status-message.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.recent-devices {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.recent-devices h4 {
+  margin-bottom: 0.8rem;
+}
+
+.device-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.device-tag {
+  background-color: #f5f5f5;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.device-tag:hover {
+  background-color: #e9e9e9;
+}
+
+/* Data Section */
+.data-section {
+  background-color: var(--card-background);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.load-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.load-button:hover {
+  background-color: #2980b9;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.delete-button {
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+/* Messages */
+.loading-message,
+.error-message,
+.no-devices-message,
+.no-data-message {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.error-message {
+  color: var(--danger-color);
+}
+
+/* Chart Loading */
+.chart-loading,
+.chart-error,
+.no-data {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.chart-error {
+  color: var(--danger-color);
+}
